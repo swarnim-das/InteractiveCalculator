@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Calculator
+	</title>
+	<style>
+		.textbox {
+			text-align: right;
+			height: 32px;
+			width: 280px;
+			background-color: #f3c0f9;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		.one {
+			margin-right: 525px;
+			margin-left: 527px;
+			border-style: solid;
+			animation: one-bg-animation 3s infinite linear alternate;
+		}
+		.btn {
+			font-size: 120%;
+			background-color: purple;
+			color: white;
+		}
+		.btn:hover {
+			background-color: #b631e2;
+		}
+
+		@keyframes one-bg-animation {
+			0% {
+				background-color: #ca71e8;
+			}
+			10% {
+				background-color: #ca71e8;
+			}
+			20% {
+				background-color: #ca71e8;
+			}
+			40% {
+				background-color: #cf76ed;
+			}
+			60% {
+				background-color: #cf76ed;
+			}
+			70% {
+				background-color: #d37fef;
+			}
+			90% {
+				background-color: #d37fef;
+			}
+			100% {
+				background-color: #d37fef;
+			}
+		@keyframes bg-animation {
+			0% {
+				background-color: #e0ccff;
+			}
+			10% {
+				background-color: #e0ccff;
+			}
+			20% {
+				background-color: #e0ccff;
+			}
+			40% {
+				background-color: #e0ccff;
+			}
+			60% {
+				background-color: #e0ccff;
+			}
+			70% {
+				background-color: #e0ccff;
+			}
+			90% {
+				background-color: #d1b3ff;
+			}
+			100% {
+				background-color: #d1b3ff;
+			}
+			
+
+		}
+
+		body {
+			animation: bg-animation 3s infinite linear alternate;
+		}
+
+	</style>
+	<script type="text/javascript">
+		symbol="";
+		function b9() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"9";
+		}
+		function b8() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"8";
+		}
+		function b7() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"7";
+		}
+		function b6() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"6";
+		}
+		function b5() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"5";
+		}
+		function b4() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"4";
+		}
+		function b3() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"3";
+		}
+		function b2() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"2";
+		}
+		function b1() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"1";
+		}
+		function b0() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+"0";
+		}
+		function dot() {
+			y = f1.t1.value;
+			if(y == "" || y.length < 12)
+				f1.t1.value = y+".";
+		}
+		function clr() {
+			f1.t1.value = "";
+			symbol = "";
+		}
+		function cls() {
+			f1.t1.value = "";
+		}
+		function division() {
+			a = parseFloat(f1.t1.value);
+			if(symbol == "")
+				ans = a / 1;
+			else if(symbol != "=") {
+				c = ans;
+				ans = ev(symbol,c,a);
+			}
+			else
+				ans = a / 1;
+
+			symbol = "/";
+			cls();
+		}
+		function multiplication() {
+			a = parseFloat(f1.t1.value);
+			if(symbol == "")
+				ans = a * 1;
+			else if(symbol != "=") {
+				c = ans;
+				ans = ev(symbol,c,a);
+			}
+			else
+				ans = a * 1;
+
+			symbol = "*";
+			cls();
+		}
+		function addition() {
+			a = parseFloat(f1.t1.value);
+			if(symbol == "")
+				ans = a + 0;
+			else if(symbol != "=") {
+				c = ans;
+				ans = ev(symbol,c,a);
+			}
+			else
+				ans = a + 0;
+
+			symbol = "+";
+			cls();
+		}
+		function subtraction() {
+			a = parseFloat(f1.t1.value);
+			if(symbol == "")
+				ans = a - 0;
+			else if(symbol != "=") {
+				c = ans;
+				ans = ev(symbol,c,a);
+			}
+			else
+				ans = a - 0;
+
+			symbol = "-";
+			cls();
+		}
+		function eq() {
+			b = parseFloat(f1.t1.value);
+			ans = ev(symbol,ans,b);
+			f1.t1.value = +(ans).toFixed(5);
+			symbol = "=";
+		}
+		function ev(symbol, v1, v2) {
+			switch(symbol) {
+
+				case "+" :
+							x = v1 + v2;
+							break;
+				case "-" :
+							x = v1 - v2;
+							break;
+				case "*" :
+							x = v1 * v2;
+							break;
+				case "/" :
+							x = v1 / v2;
+							break;
+			}
+
+			return x;
+		}
+		function bcksp() {
+			var d1=f1.t1.value;
+			var len=d1.length;
+			d1=d1.substring(0,len-1);
+			f1.t1.value=d1;
+		}
+	</script>
+</head>
+<body bgcolor="#d1b3ff">
+	<br>
+	<br>
+	<br>
+	<center>
+		<h1>
+			CALCULATOR
+		</h1>
+	</center>
+	<br>
+	<br>
+	<br>	
+		<center>
+			<div class = "one">
+			<br>
+			<form name="f1">
+				<input type="text" name="t1" maxlength="10" class="textbox" readonly="readonly" />
+				<br><br>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="clr()">C</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="division()">/</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="multiplication()">*</button>
+				<button type="button" style="width: 57px; height: 40px; font-weight: bold" class="btn" onclick="dot()">.</button>
+				<br><br>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b9()">9</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b8()">8</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b7()">7</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="addition()">+</button>
+				<br><br>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b6()">6</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b5()">5</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b4()">4</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="subtraction()">-</button>
+				<br><br>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b3()">3</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b2()">2</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b1()">1</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="b0()">0</button>
+				<br><br>
+				<button type="button" style="width: 127px; height: 40px" class="btn" onclick="eq()">=</button>
+				<button type="button" style="width: 57px; height: 40px" class="btn" onclick="bcksp()">Del</button>
+				<br>
+				<br>
+			</form>	
+		</div>
+	</center>
+</body>
+</html>
